@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProResume | Ultimate Responsive Builder</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1>ProResume <span>Builder</span></h1>
+        <div class="nav-actions">
+            <select id="themeSelect">
+                <option value="default">Corporate Blue</option>
+                <option value="modern-dark">Modern Charcoal</option>
+                <option value="emerald">Elegant Emerald</option>
+                <option value="sunset">Warm Sunset</option>
+            </select>
+            <button id="downloadPdf" class="btn-success">Download PDF</button>
+        </div>
+    </nav>
+
+    <main class="app-container">
+        <section class="editor-pane">
+            <form id="resumeForm">
+                <div class="form-section">
+                    <h3>Personal Information</h3>
+                    <div class="input-grid">
+                        <input type="text" id="name" placeholder="Full Name" required>
+                        <input type="email" id="email" placeholder="Email Address" required>
+                        <input type="tel" id="phone" placeholder="Phone Number">
+                        <input type="text" id="linkedin" placeholder="LinkedIn Profile Link">
+                        <input type="text" id="github" placeholder="GitHub/Portfolio Link">
+                        <div class="file-group">
+                            <label for="profilePic">Profile Picture</label>
+                            <input type="file" id="profilePic" accept="image/*">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Career Objective</h3>
+                    <textarea id="objective" placeholder="Write a brief professional summary..."></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h3>Work Experience</h3>
+                    <div id="experienceList"></div>
+                    <button type="button" class="btn-add" onclick="addExperience()">+ Add Experience</button>
+                </div>
+
+                <div class="form-section">
+                    <h3>Projects</h3>
+                    <div id="projectList"></div>
+                    <button type="button" class="btn-add" onclick="addProject()">+ Add Project</button>
+                </div>
+
+                <div class="form-section">
+                    <h3>Skills & Education</h3>
+                    <input type="text" id="skills" placeholder="Skills (e.g. JavaScript, Python, UI Design)">
+                    <input type="text" id="education" placeholder="Education (e.g. B.Tech Computer Science, 2024)">
+                    <input type="text" id="languages" placeholder="Languages (e.g. English, Spanish)">
+                </div>
+
+                <button type="submit" class="btn-primary">Preview Resume</button>
+            </form>
+        </section>
+
+        <section class="preview-pane">
+            <div id="resumeTemplate" class="resume-paper">
+                <div class="resume-header">
+                    <img id="resPhoto" src="" alt="Profile" style="display:none;">
+                    <div class="header-info">
+                        <h1 id="resName">Your Name</h1>
+                        <p id="resContact">Contact Details will appear here</p>
+                    </div>
+                </div>
+
+                <div id="resContent">
+                    <div class="placeholder-msg">Your professional resume preview will appear here in real-time.</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
